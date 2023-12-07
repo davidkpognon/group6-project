@@ -4,5 +4,23 @@
 #include "project.h"
 // This file contains function definitons 
 
+extern int* logical_addresses;
 
-physical = (int**)malloc(sizeof(int*)*physicalMemory);
+int* read_address(char* filename){
+    FILE * file = NULL;
+    int* addresses = NULL;
+
+    file = fopen(filename, "r");
+    addresses = (int*)malloc(sizeof(int)*1000);
+
+    for (int line = 0; line < 1000; line++){
+      	fscanf(file, "%d", &(addresses[line]));
+        printf("%d\n",addresses[line]);
+    }
+  
+  	fclose(file);
+  
+  	return addresses;
+
+}
+    

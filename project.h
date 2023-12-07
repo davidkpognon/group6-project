@@ -1,3 +1,4 @@
+#include <stdbool.h>
 // This file declares definitons
 
 #define entries 16 
@@ -34,7 +35,7 @@ typedef struct {
  * read_address() - Reads logical address from address.txt and 
  * returns pointer to address
 */
-int ** read_address(char* filename);
+int * read_address(char* filename);
 
 /** 
  * read_address() - Reads page number in backing store from BACKING_STORE.bin and 
