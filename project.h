@@ -38,10 +38,10 @@ typedef struct {
 int * read_address(char* filename);
 
 /** 
- * read_address() - Reads page number in backing store from BACKING_STORE.bin and 
+ * read_backingStore() - Reads page number -> frame in backing store from BACKING_STORE.bin and 
  * returns pointer to page
 */
-int ** read_backingStore(char* filename);
+int * read_backingStore(char* filename);
 
 /**
  * find_page() - extracts page number from logical address and returns page number

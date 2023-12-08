@@ -19,6 +19,9 @@ int main(int argc, char *argv[]){
         fprintf(stderr,"Address Unavailable. File %s is empty or unreadable.\n",argv[1]);
         return 2;
     }
+
+    find_page(logical_addresses);
+    find_offset(logical_addresses);
     
     return 0;
 }
