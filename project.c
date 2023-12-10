@@ -29,9 +29,9 @@ int * find_page(int* address){
     int pageNumber;
 
     // casts pointer to an integer
-    uintptr_t add = (uintptr_t)address;
+    //uintptr_t add = (uintptr_t)address;
 
-    pageNumber = (add >> 8) & 0x00FF;
+    pageNumber = ((uintptr_t) logical_addresses >> 8) & 0x00FF;
     printf("%d\n",pageNumber);
     printf("\n");
     
@@ -40,12 +40,66 @@ int * find_page(int* address){
 int * find_offset(int* address){
     int offset;
 
-    uintptr_t add = (uintptr_t)address;
+    //uintptr_t add = (uintptr_t)address;
 
-    offset = add & 0x00FF;
+    offset = (uintptr_t)logical_addresses & 0x00FF;
     printf("%d\n",offset);
     printf("\n");
 }
+
+void* initialize_TLB(void* param1, void* param2){
+    TLB_param* p = (TLB_param*) param1;
+    TLB_struct* TLB = (TLB_struct*) param2;
+
+    int page_num = p->page;
+    int frame = p->frame;
+
+    int TLB_size = TLB->length;
+
+    for(int page = 0; page < frames; page++){
+        for (int frame = 0; frame < frameSize; frame++){
+            
+        }
+    }
+
+
+
+}
+
+int* TLB_check(int* page){
+    TLB_param* TLB;
+    TLB_struct* len;
+
+    TLB = (TLB_param*)malloc(sizeof(TLB_param)*frames);
+    len = (TLB_struct*)malloc(sizeof(TLB_struct)*frameSize);
+
+    int p =  0;
+
+    for(int index = 0; index < frames; index++){
+        if (TLB[p].page == page){
+            return 1;
+        }
+    }
+
+    return 0; 
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 int* read_backingStore(char * filename){

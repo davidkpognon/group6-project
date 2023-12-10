@@ -59,12 +59,13 @@ int * find_offset(int* address);
 */
 int ** translate(int* frame);
 
+
 /**
  * TLB_check() - takes the page number + offset and checks TLB 
- * returns a hit or a miss
+ * returns  1 for a hit or 2 for a miss
 */
 
-bool ** TLB_check(int* frame);
+int* TLB_check(int* page);
 
 /**
  * Page_check() - takes the page number + offset and checks page table 
