@@ -4,6 +4,8 @@
 #include <stdlib.h>
 
 int* logical_addresses;
+int* page;
+int* offset;
 
 int main(int argc, char *argv[]){
     
@@ -21,6 +23,12 @@ int main(int argc, char *argv[]){
 
     find_page(logical_addresses);
     find_offset(logical_addresses);
+
+
+
+    /** check_TLB - If function yields 0, initialize page table, else initate translate() 
+     * and PhysicalStorage
+     */
     
     return 0;
 }
