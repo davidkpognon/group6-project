@@ -34,10 +34,10 @@ int* check_TLB(int* page){
 
     for(int index = 0; index < entries; index++){
         if (TLBtable->table[index].page == page){
-            return TLBtable->table[index].frame; // Returns frame
+            return TLBtable->table[index].frame; // Returns frame (TLB Hit)
         }
         else{
-            return 0; //
+            return 0; // TLB Miss
         }
     }
 }
